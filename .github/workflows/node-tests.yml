@@ -14,17 +14,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: List files in the repository
+        run: ls -R
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
       - name: Install dependencies
-        working-directory: ./frontendIntegration 
+        working-directory: ./frontend/frontendIntegration # <-- Chemin complet vers votre projet
         run: npm install
 
       - name: Run tests
-        working-directory: ./frontendIntegration 
+        working-directory: ./frontend/frontendIntegration # <-- Chemin complet vers votre projet
         run: npm test
 
     env:
